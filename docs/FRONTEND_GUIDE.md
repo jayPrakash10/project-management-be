@@ -677,7 +677,7 @@ Every mutation returns the updated task, so replace the card in local state with
 - [ ] After removing a member or deleting a section, refetch tasks (the server changes tasks as a side effect).
 - [ ] Confirm before every destructive action (delete project, task, section, comment; remove member).
 
-## 8. Demo accounts (after `npm run seed`)
+## 8. Demo accounts (already in the database)
 
 All passwords: `Password123!`
 

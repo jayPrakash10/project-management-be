@@ -31,10 +31,5 @@ export function buildKnexConfig({ connectionString, useSsl, poolMax }: KnexConfi
       loadExtensions: ['.ts'],
       tableName: 'knex_migrations',
     },
-    seeds: {
-      directory: path.resolve(__dirname, '../../seeds'),
-      extension: 'ts',
-      loadExtensions: ['.ts'],
-    },
   };
 }

@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "api", "migrations", "seeds", "knexfile.ts"],
+  "include": ["src", "api", "migrations", "knexfile.ts"],
   "ts-node": {
     "transpileOnly": true
   }

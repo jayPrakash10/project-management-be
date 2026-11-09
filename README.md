@@ -170,20 +170,19 @@ In Supabase, open **Project Settings → Database → Connection string** and fi
 | Variable | Value |
 |---|---|
 | `DATABASE_URL` | **Transaction pooler** URL (port `6543`). Used by the running API |
-| `DATABASE_URL_DIRECT` | **Session pooler** or direct URL (port `5432`). Used by migrations and seeds |
+| `DATABASE_URL_DIRECT` | **Session pooler** or direct URL (port `5432`). Used by migrations |
 | `JWT_SECRET` | At least 32 random characters: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"` |
 
-### 3. Migrate, seed, run
+### 3. Migrate and run
 
 ```bash
 npm run migrate     # create tables
-npm run seed        # load demo users, projects, tasks, comments
 npm run dev         # http://localhost:3000/api
 ```
 
 Check that it's up: `curl http://localhost:3000/api/health`
 
-### Demo accounts (password `Password123!`)
+### Demo accounts (already loaded in the database, password `Password123!`)
 
 | Email | Role |
 |---|---|
@@ -202,7 +201,6 @@ Check that it's up: `curl http://localhost:3000/api/health`
 | `npm run migrate` | Run pending migrations |
 | `npm run migrate:rollback` | Roll back the last migration batch |
 | `npm run migrate:make <name>` | Create a new migration file |
-| `npm run seed` | Reset tables and load demo data |
 
 ---
 
@@ -295,7 +293,6 @@ Full request and response examples: [docs/API.md](docs/API.md).
 ```
 ├── api/index.ts              # Vercel serverless entry (exports the Express app)
 ├── migrations/               # Knex migrations, one per table
-├── seeds/01_demo_data.ts     # Demo users, projects, tasks, comments
 ├── src/
 │   ├── app.ts                # Express app: security headers, CORS, JSON, logging, routes, errors
 │   ├── server.ts             # Local entry (app.listen)
@@ -309,7 +306,7 @@ Full request and response examples: [docs/API.md](docs/API.md).
 │   ├── types/                # Shared TypeScript types
 │   └── utils/                # errors, JWT, passwords, pagination, dates, responses
 ├── docs/API.md               # Endpoint examples
-├── knexfile.ts               # Knex CLI config (migrations, seeds)
+├── knexfile.ts               # Knex CLI config (migrations)
 ├── vercel.json
 └── .env.example
 ```

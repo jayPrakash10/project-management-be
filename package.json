@@ -10,8 +10,7 @@
     "typecheck": "tsc --noEmit",
     "migrate": "knex --knexfile knexfile.ts migrate:latest",
     "migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
-    "migrate:make": "knex --knexfile knexfile.ts migrate:make -x ts",
-    "seed": "knex --knexfile knexfile.ts seed:run"
+    "migrate:make": "knex --knexfile knexfile.ts migrate:make -x ts"
   },
   "engines": {
     "node": ">=20"
